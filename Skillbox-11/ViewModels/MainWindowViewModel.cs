@@ -117,10 +117,7 @@ namespace Skillbox_11
         {
             get
             {
-                if (_selectedClient == null)
-                {
-                    _selectedClient = new Client();
-                }
+                if (_selectedClient != null)
                 switch (User)
                 {
                     case UserType.Consultant:
@@ -133,7 +130,6 @@ namespace Skillbox_11
                         break;
                 }
                 return _selectedClient;
-
             }
             set => Set(ref _selectedClient, value);
         }
