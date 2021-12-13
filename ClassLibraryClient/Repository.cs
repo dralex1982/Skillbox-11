@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 
@@ -9,18 +10,17 @@ namespace Skillbox_11.ClientLibrary
     {
         #region Поля
         /// <summary>Список клиентов</summary>
-        private protected ObservableCollection<Client> clients;
+        private protected List<Client> clients;
 
         /// <summary>Путь к файлу с клиентами</summary>
         private protected string path;
 
         /// <summary>Индекс клиента</summary>
         private protected int index;
-
         #endregion
 
         /// <summary>Список клиентов</summary>
-        public ObservableCollection<Client> Clients
+        public List<Client> Clients
         { get { return clients; } }
 
         /// <summary>Индексатор</summary>
@@ -46,7 +46,7 @@ namespace Skillbox_11.ClientLibrary
                 File.Create(path);
 
                 this.index = 0;
-                this.clients = new ObservableCollection<Client>();
+                this.clients = new List<Client>();
             }
            
         }
@@ -65,7 +65,7 @@ namespace Skillbox_11.ClientLibrary
         private void Load(string path)
         {
                 string json = File.ReadAllText(path);
-                clients = JsonConvert.DeserializeObject<ObservableCollection<Client>>(json);
+                clients = JsonConvert.DeserializeObject<List<Client>>(json);
         }
 
         public void Load() => Load(this.path);
