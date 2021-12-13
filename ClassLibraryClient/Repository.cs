@@ -54,7 +54,6 @@ namespace Skillbox_11.Model
                 this.index = 0;
                 this.clients = new ObservableCollection<Client>();
             }
-
            
         }
 
