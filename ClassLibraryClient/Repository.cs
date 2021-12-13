@@ -42,15 +42,18 @@ namespace Skillbox_11.Model
         /// <param name="path">Путь к списку клиентов</param>
         public Repository(string path)
         {
-            if (File.Exists(path) && new FileInfo(path).Length !=0)
+            if (File.Exists(path) && new FileInfo(path).Length != 0)
             {
                 this.path = path;
                 this.Load();
             }
-            else File.Create(path);
+            else
+            {
+                File.Create(path);
 
-            this.index = 0;
-            this.clients = new ObservableCollection<Client>();
+                this.index = 0;
+                this.clients = new ObservableCollection<Client>();
+            }
 
            
         }

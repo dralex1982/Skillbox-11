@@ -45,13 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IClientVew.cs" />
-    <Compile Include="Model\Client.cs" />
-    <Compile Include="Model\Consultant.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="Consultant.cs" />
     <Compile Include="Interfaces\IClientEdit.cs" />
     <Compile Include="Interfaces\ICopy.cs" />
-    <Compile Include="Model\Manager.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Repository.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrarySkillBox-11\ClassLibraryMVVM.csproj">
