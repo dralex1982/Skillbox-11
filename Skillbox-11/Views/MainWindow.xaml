@@ -5,18 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:vm="clr-namespace:Skillbox_11.ViewModels"
-        xmlns:cmd="clr-namespace:Skillbox_11.ViewModels.Commands"
         xmlns:l="clr-namespace:Skillbox_11"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:converter="clr-namespace:Skillbox_11.ViewModels.Commands"
         Title="{Binding Title}" Height="500" Width="700" 
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"       >
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Window.Resources>
-        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
-        <converter:InvertBoolConverter x:Key="InvertBoolConverter"/>
         <Style TargetType="Button" x:Key="ButtonManagement"
                BasedOn="{StaticResource MaterialDesignFloatingActionAccentButton}">
             <Setter Property="Width" Value="25"/>
