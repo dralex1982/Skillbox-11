@@ -1,0 +1,225 @@
+﻿<Window x:Name="window" x:Class="Skillbox_11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:vm="clr-namespace:Skillbox_11.ViewModels"
+        xmlns:cmd="clr-namespace:Skillbox_11.ViewModels.Commands"
+        xmlns:l="clr-namespace:Skillbox_11"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:converter="clr-namespace:Skillbox_11.ViewModels.Commands"
+        Title="{Binding Title}" Height="500" Width="700" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"       >
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
+        <converter:InvertBoolConverter x:Key="InvertBoolConverter"/>
+        <Style TargetType="Button" x:Key="ButtonManagement"
+               BasedOn="{StaticResource MaterialDesignFloatingActionAccentButton}">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style TargetType="Button" x:Key="Button"
+               BasedOn="{StaticResource MaterialDesignFloatingActionAccentButton}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Background" Value="#FFA57BE7"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="#FFC5B6DC"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#FFC5B6DC"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockListClient">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid ShowGridLines="False" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Верхняя полоса с кнопками-->
+        <Grid Grid.ColumnSpan="2" Background="#FF8936BF" MouseDown="Grid_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button Style="{StaticResource ButtonManagement}">
+                    <materialDesign:PackIcon Kind="Bell"/>
+                </Button>
+                <Button Style="{StaticResource ButtonManagement}">
+                    <materialDesign:PackIcon Kind="Account"/>
+                </Button>
+                <Button Command="{Binding CloseApplicationCommand}"
+                    Style="{StaticResource ButtonManagement}">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!--Левая часть приложения-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect RenderingBias="Quality" ShadowDepth="1" Color="#FFCAAFAF"/>
+            </Grid.Effect>
+            <!--Header списка клиентов-->
+            <Grid Background="#FFA57BE7">
+                <TextBlock Text="Список клиентов"/>
+            </Grid>
+            <!--Список клиентов-->
+            <ListBox x:Name="ListBoxClients"
+                     Grid.Row="1"
+                     HorizontalAlignment="Center"
+                     ItemsSource="{Binding Repository.Clients}"
+                     SelectedItem="{Binding SelectedClient}">
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCACACA" Offset="1"/>
+                        <GradientStop Color="#FFA2A2A2" Offset="0"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="White"
+                                BorderThickness="1"
+                                CornerRadius="10"
+                                HorizontalAlignment="Stretch"
+                                Width="150">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="{Binding Path=Surname}"
+                                           Style="{StaticResource TextBlockListClient}"/>
+                                <TextBlock Text="{Binding Name}"
+                                           Style="{StaticResource TextBlockListClient}"/>
+                                <TextBlock Text="{Binding Patronymic}" 
+                                           Style="{StaticResource TextBlockListClient}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <!--Выбор пользователя-редактора-->
+            <StackPanel Grid.Row="2" VerticalAlignment="Center">
+                <!--Header выбора пользователя-->
+                <Grid Background="#FFA57BE7">
+                    <TextBlock Text="Выбор пользователя"/>
+                </Grid>
+                <!--Комбобокс выбора пользователя-->
+                <ComboBox ItemsSource="{Binding Path=Users}"
+                          DisplayMemberPath="DisplayValue"
+                          SelectedValuePath="Value"
+                          SelectedValue="{Binding Path=User}">
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <!--Правая часть приложения-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect RenderingBias="Quality" ShadowDepth="1" Color="#FFFDFDFD"/>
+            </Grid.Effect>
+            <!--Header информации-->
+            <Grid Background="#FFA57BE7">
+                <TextBlock Text="Информация о клиенте"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCACACA" Offset="1"/>
+                    <GradientStop Color="#FFA2A2A2" Offset="0"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <!--Информация о клиенте-->
+                <StackPanel DataContext="{Binding SelectedClient}">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="FontFamily" Value="Segoe Print"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="Height" Value="25"/>
+                            <Setter Property="FontFamily" Value="Times New Roman"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock Text="Фамилия"/>
+                    <TextBox Text="{Binding Path=Surname, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Имя"/>
+                    <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Отчество"/>
+                    <TextBox Text="{Binding Path=Patronymic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Номер телефона"/>
+                    <TextBox Text="{Binding Path=Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Номер паспорта"/>
+                    <TextBox Text="{Binding Path=Passport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <!--Кнопки редактирования клиента-->
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center">
+                    <Button Content="Новый клиент"
+                            Command="{Binding AddClientCommand}"
+                            Style="{StaticResource Button}"/>
+                    <Button Content="Сохранить"
+                            Command="{Binding SaveDateClient}"
+                            Style="{StaticResource Button}"/>
+                    <Button Content="Отмена"  Style="{StaticResource Button}"/>
+                </StackPanel>
+            </Grid>
+            <!--Кнопки управления программой-->
+            <StackPanel Orientation="Horizontal"
+                    Grid.Row="2" Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right">
+                <Button Content="Сохранить"
+                        Style="{StaticResource Button}"/>
+                <Button Content="Выход"
+                        Command="{Binding Path=CloseApplicationCommand}"
+                        Style="{StaticResource Button}" Cursor="Hand"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
