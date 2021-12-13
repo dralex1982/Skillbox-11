@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Skillbox_11.ViewModels.Base
+namespace Skillbox_11.MVVMLibrary
 {
     /// <summary>Базовый класс с реализацией INPC </summary>
-    public abstract class ViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         /// <summary>Событие для извещения об изменения свойства</summary>
         public event PropertyChangedEventHandler PropertyChanged;

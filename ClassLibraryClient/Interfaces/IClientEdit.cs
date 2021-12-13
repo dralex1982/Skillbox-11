@@ -1,11 +1,5 @@
-﻿using Skillbox_11.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Skillbox_11.Models
+﻿
+namespace Skillbox_11.ClientLibrary
 {
     public interface IClientEdit
     {

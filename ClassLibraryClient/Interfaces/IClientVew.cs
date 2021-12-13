@@ -1,6 +1,6 @@
-﻿using Skillbox_11.Model;
+﻿using Skillbox_11.ClientLibrary;
 
-namespace ClassLibraryClient.Interfaces
+namespace ClientLibrary
 {
     internal interface IClientVew
     {

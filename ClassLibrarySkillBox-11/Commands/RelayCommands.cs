@@ -1,11 +1,6 @@
-﻿using Skillbox_11.ViewModels.Commands.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace Skillbox_11.ViewModels.Commands
+namespace Skillbox_11.MVVMLibrary
 {
     public class RelayCommands : Command
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Skillbox_11.Models
+namespace Skillbox_11.ClientLibrary
 {
     /// <summary>Интерфейс для создания копии экзампляра того же типа
     /// и копирования значений в другой или из другого экзепляра</summary>

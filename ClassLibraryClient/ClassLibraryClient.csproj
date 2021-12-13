@@ -54,13 +54,13 @@
     <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ClassLibrarySkillBox-11\ClassLibraryMVVM.csproj">
       <Project>{632ad299-29bd-4ef0-8c57-3e7ef381e719}</Project>
       <Name>ClassLibraryMVVM</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

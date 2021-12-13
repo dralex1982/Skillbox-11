@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Skillbox_11.ViewModels.Commands.Base
+namespace Skillbox_11.MVVMLibrary
 {
     /// <summary>Класс реализующий интерфейс ICommand для создания WPF команд</summary>
     public abstract class Command : ICommand

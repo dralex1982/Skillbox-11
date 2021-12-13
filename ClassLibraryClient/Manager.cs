@@ -1,8 +1,6 @@
-﻿using ClassLibraryClient.Interfaces;
-using Skillbox_11.Models;
-using System;
+﻿using System;
 
-namespace Skillbox_11.Model
+namespace Skillbox_11.ClientLibrary
 {
     /// <summary>Менеджер</summary>
     public class Manager : Client

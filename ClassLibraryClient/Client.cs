@@ -1,10 +1,9 @@
-﻿using Skillbox_11.ViewModels.Base;
-using System;
+﻿using Skillbox_11.MVVMLibrary;
 
-namespace Skillbox_11.Model
+namespace Skillbox_11.ClientLibrary
 {
     /// <summary>Клиент</summary>
-    public class Client : ViewModel
+    public class Client : BaseViewModel
     {
 
         #region Поля

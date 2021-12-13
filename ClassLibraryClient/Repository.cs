@@ -1,14 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Skillbox_11.ViewModels.Base;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Skillbox_11.Model
+namespace Skillbox_11.ClientLibrary
 {
     /// <summary>Репозиторий клиентов</summary>
     public class Repository

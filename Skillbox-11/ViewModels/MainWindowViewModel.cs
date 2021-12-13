@@ -1,14 +1,12 @@
-﻿using Skillbox_11.Model;
-using Skillbox_11.Models;
-using Skillbox_11.ViewModels.Base;
-using Skillbox_11.ViewModels.Commands;
+﻿using Skillbox_11.ClientLibrary;
+using Skillbox_11.MVVMLibrary;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Skillbox_11.ViewModels
+namespace Skillbox_11
 {
-    internal class MainWindowViewModel : ViewModel
+    internal class MainWindowViewModel : BaseViewModel
     {
         #region Заголовок окна
 

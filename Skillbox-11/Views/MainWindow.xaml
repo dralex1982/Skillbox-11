@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
-        xmlns:vm="clr-namespace:Skillbox_11.ViewModels"
+        xmlns:vm="clr-namespace:Skillbox_11"
         xmlns:l="clr-namespace:Skillbox_11"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="{Binding Title}" Height="500" Width="700" 
