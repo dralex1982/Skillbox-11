@@ -16,27 +16,24 @@ namespace Skillbox_11.ClientLibrary
             base.phone = client.Phone;
         }
 
-        
+
 
         #region Свойства
 
         public override string Name
         {
             get => base.Name;
-            set
-            {
-                OnPropertyChanged(nameof(base.Name));
-            }
+            set => base.Name = value;
         }
         public override string Patronymic
         {
             get => base.Patronymic;
-            set { OnPropertyChanged(nameof(base.Patronymic)); }
+            set => base.Patronymic = value;
         }
         public override string Surname
         {
             get => base.Surname;
-            set { OnPropertyChanged(nameof(base.Surname)); }
+            set => base.Surname = value;
         }
         public override string Passport
         {
@@ -48,7 +45,7 @@ namespace Skillbox_11.ClientLibrary
                 }
                 else return string.Empty;
             }
-            set { OnPropertyChanged(nameof(base.Passport)); }
+            set => base.Passport = value;
         }
         public override string Phone
         {

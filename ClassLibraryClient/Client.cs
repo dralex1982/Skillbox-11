@@ -3,7 +3,7 @@
 namespace Skillbox_11.ClientLibrary
 {
     /// <summary>Клиент</summary>
-    public class Client : BaseViewModel
+    public class Client
     {
 
         #region Поля
@@ -32,42 +32,42 @@ namespace Skillbox_11.ClientLibrary
         public virtual int Id
         {
             get { return id; }
-            set => Set(ref id, value);
+            set { id = value; }
         }
 
         /// <summary>Фамилия</summary>
         public virtual string Surname
         {
             get { return surname; }
-            set => Set(ref surname, value);
+            set { surname = value; }
         }
 
         /// <summary>Имя</summary>
         public virtual string Name
         {
             get { return name; }
-            set => Set(ref name, value);
+            set { name = value; }
         }
 
         /// <summary>Отчество</summary>
         public virtual string Patronymic
         {
             get { return patronymic; }
-            set => Set(ref patronymic, value);
+            set { patronymic = value; }
         }
 
         /// <summary>Номер телефона</summary>
         public virtual string Phone
         {
             get { return phone; }
-            set => Set(ref phone, value);
+            set { phone = value; }
         }
 
         /// <summary>Серия, номер паспорта</summary>
         public virtual string Passport
         {
             get { return passport; }
-            set => Set(ref passport, value);
+            set { passport = value; }
         }
 
         #endregion
