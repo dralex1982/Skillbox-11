@@ -104,17 +104,15 @@ namespace Skillbox_11.ClientLibrary
         }
         #endregion
 
-        /// <summary>Клиент для редактирования менеджером</summary>
-        /// <param name="client">Выбранный клиент</param>
-        /// <returns>Клиент для редактирования менеджером</returns>
+        /// <summary>Клиент для редактирования/просмотра менеджером</summary>
+        /// <returns>Клиент для менеджера</returns>
         public Client GetForManager()
         {
             return new Manager(this);
         }
 
-        /// <summary>Клиент для редактирования консультантом</summary>
-        /// <param name="client">Выбранный клиент</param>
-        /// <returns>Клиент для редактирования консультантом</returns>
+        /// <summary>Клиент для редактирования/просмотра консультантом</summary>
+        /// <returns>Клиент для консультанта</returns>
         public Client GetForConsultant()
         {
             return new Consultant(this);

@@ -117,18 +117,16 @@ namespace Skillbox_11
         {
             get
             {
-                if (_selectedClient != null)
-                switch (User)
-                {
-                    case UserType.Consultant:
-                        _selectedClient = _selectedClient.Get
-                        break;
-                    case UserType.Manager:
-                        _selectedClient = new Manager(_selectedClient);
-                        break;
-                    default:
-                        break;
-                }
+                if (_selectedClient is not null)
+                    switch (User)
+                    {
+                        case UserType.Consultant:
+                            return _selectedClient.GetForConsultant();
+                        case UserType.Manager:
+                            return _selectedClient.GetForManager();
+                        default:
+                            break;
+                    }
                 return _selectedClient;
             }
             set => Set(ref _selectedClient, value);
