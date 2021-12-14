@@ -16,21 +16,7 @@ namespace Skillbox_11.ClientLibrary
             base.phone = client.Phone;
         }
 
-        /// <summary>Клиент для редактирования менеджером</summary>
-        /// <param name="client">Выбранный клиент</param>
-        /// <returns>Клиент для редактирования менеджером</returns>
-        public Client GetForManager(this Client client)
-        {
-            return new Manager(this);
-        }
-
-        /// <summary>Клиент для редактирования консультантом</summary>
-        /// <param name="client">Выбранный клиент</param>
-        /// <returns>Клиент для редактирования консультантом</returns>
-        public Client ForConsultant(this Client client)
-        {
-            return new GetConsultant(this);
-        }
+        
 
         #region Свойства
 

@@ -121,7 +121,7 @@ namespace Skillbox_11
                 switch (User)
                 {
                     case UserType.Consultant:
-                        _selectedClient = new Consultant(_selectedClient);
+                        _selectedClient = _selectedClient.Get
                         break;
                     case UserType.Manager:
                         _selectedClient = new Manager(_selectedClient);
