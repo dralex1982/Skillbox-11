@@ -124,8 +124,7 @@ namespace Skillbox_11
                             return _selectedClient.GetForConsultant();
                         case UserType.Manager:
                             return _selectedClient.GetForManager();
-                        default:
-                            break;
+                        default: return null;
                     }
                 return _selectedClient;
             }
